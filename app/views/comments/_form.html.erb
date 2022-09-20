@@ -1,14 +1,16 @@
 <%= form_with model: [ @post, @post.comments.build ] do |form| %>
   
-  <p>
-    <%= form.label :author %><br>
-    <%= form.text_field :author %>
-  </p>
-  <p>
-    <%= form.label :content %><br>
-    <%= form.text_area :content %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+  <div class="w-25">
+    <p>
+        <%= form.label :author %><br>
+        <%= form.text_field :author, class: "form-control" %>
+    </p>
+    <p>
+        <%= form.label :content %><br>
+        <%= form.text_area :content, class: "form-control" %>
+    </p>
+    <p>
+        <%= form.submit "Add", class: "btn mb-2 btn-sm btn-outline-primary" %>
+    </p>
+  </div>
 <% end %>

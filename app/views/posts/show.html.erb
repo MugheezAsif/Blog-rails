@@ -3,25 +3,31 @@
 
 <div class="container">
 
-  <h1>Showing Post</h1>
+  <h1 class="text-center p-4">Showing Post</h1>
   <p><strong>Title :</strong> <%= @post.title%> </p>
   <p><strong>Content :</strong> <%= @post.content%> </p>
 
-  <div class="container">
-    <h4>Comments<h4>
-    <p>Total comments <%= @post.comments.count %></p>
-    <% @post.comments.each do |c| %>
-      <p><strong>Author : </strong> <%= c.author%><p>
-      <p><strong>Content : </strong> <%= c.content%><p>
-    <% end %>
-  </div>
 
+  <div class="my-2">
+    <%= link_to "Edit this Post", edit_post_path(@post), class: "btn mb-2 btn-sm btn-outline-primary" %>
+
+    <%= button_to "Destroy this Post", @post, method: :delete, class: "btn btn-sm btn-outline-secondary" %>
+  </div>
+  <hr class="m-5">
+  <div class="my-4">
+    <h4><%= @post.comments.count %> Comments</h4>
+    <div class="container">
+      <% @post.comments.each do |c| %>
+        <p><strong> <%= c.author%> </strong><p>
+        <p class="pl-4"><%= c.content%><p>
+        <%= button_to "Delete", @comment, method: :delete %>
+
+
+      <% end %>
+    </div>
+  </div>
+  <hr class="m-5">
+  <h4>Add Comment</h4>
   <%= render "comments/form" %>
 
-  <div class="mx-2">
-    <%= link_to "Edit this Post", edit_post_path(@post), class: "btn mr-2 btn-secondary" %> |
-    <%= link_to "Back to Posts", posts_path, class: "btn ml-2 btn-primary" %>
-
-    <%= button_to "Destroy this Post", @post, method: :delete, class: "btn mt-2 btn-large btn-primary" %>
-  </div>
 </div>
