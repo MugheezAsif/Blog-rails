@@ -1,0 +1,14 @@
+
+<div class="container">
+
+<h1>Showing Post</h1>
+<p><strong>Title :</strong> <%= @post.title%> </p>
+<p><strong>Content :</strong> <%= @post.content%> </p>
+
+<div class="mx-2">
+  <%= link_to "Edit this Post", edit_post_path(@post), class: "btn mr-2 btn-secondary" %> |
+  <%= link_to "Back to Posts", posts_path, class: "btn ml-2 btn-primary" %>
+
+  <%= button_to "Destroy this Post", @post, method: :delete, class: "btn mt-2 btn-large btn-primary" %>
+</div>
+</div>
