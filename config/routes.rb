@@ -5,9 +5,12 @@ Rails.application.routes.draw do
    root "posts#index"
 
   resources :posts do
-    get 'comments', to: 'comments#new', as: 'comments_new'
-    get 'comments/:id', to: 'comments#destroy', as: 'comments_destroy'
-    get 'comments/:id', to: 'comments#edit', as: 'comments_edit' 
+
+    resource :comments
+
+    #get 'comments', to: 'comments#new', as: 'comments_new'
+    #get 'comments/:id', to: 'comments#destroy', as: 'comments_destroy'
+    #get 'comments/:id', to: 'comments#edit', as: 'comments_edit' 
   end
   resources :users
 

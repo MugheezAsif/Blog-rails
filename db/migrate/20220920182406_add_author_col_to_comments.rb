@@ -1,4 +1,4 @@
-class AddNameToComments < ActiveRecord::Migration[7.0]
+class AddAuthorColToComments < ActiveRecord::Migration[7.0]
   def change
     add_column :comments, :author, :string
   end
