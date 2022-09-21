@@ -20,7 +20,7 @@
       <% @post.comments.each do |c| %>
         <p><strong> <%= c.author%> </strong><p>
         <p class="pl-4"><%= c.content%><p>
-        <%= button_to "Delete", @comment, method: :delete %>
+        
 
 
       <% end %>
